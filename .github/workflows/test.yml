@@ -54,6 +54,6 @@ jobs:
         if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
         uses: actions/upload-code-coverage@v1
         with:
-          file: "**/TestResults/coverage.cobertura.xml"
+          file: "TestResults/coverage.cobertura.xml"
           language: C#
           label: code-coverage/dotnet
