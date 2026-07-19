@@ -1,0 +1,67 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net10.0;net9.0;net8.0;net481;net472</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<LangVersion>14</LangVersion>
+		<IsAotCompatible>true</IsAotCompatible>
+
+		<OutputType>Library</OutputType>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+		<RootNamespace>OceanApocalypseStudios.RedSea</RootNamespace>
+
+		<IsPackable>true</IsPackable>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Debug Build" Condition="'$(Configuration)' == 'Debug'">
+		<DebugType>full</DebugType>
+		<CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Release (Optimized) Build" Condition="'$(Configuration)' == 'Release'">
+		<DebugType>none</DebugType>
+		<Optimize>true</Optimize>
+	</PropertyGroup>
+
+	<ItemGroup Label="Resources">
+		<None Include="..\..\assets\icon.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+			<Visible>false</Visible>
+		</None>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+			<Visible>false</Visible>
+		</None>
+	</ItemGroup>
+
+	<PropertyGroup>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+
+		<PackageId>OceanApocalypseStudios.RedSeaEngine.Json</PackageId>
+		<Title>JSON Support for Red Sea Engine</Title>
+		<Authors>OceanApocalypseStudios</Authors>
+		<Company>OceanApocalypseStudios</Company>
+		<NeutralLanguage>en</NeutralLanguage>
+
+		<!-- DON'T FORGET TO EDIT THIS -->
+		<Version>1.0.0-prerelease1</Version>
+		<InformationalVersion>1.0.0-prerelease1</InformationalVersion>
+		<PackageReleaseNotes>TODO</PackageReleaseNotes>
+
+		<Description>The engine made for handling cross-platform targets with incredible ease.</Description>
+		<Copyright>Copyright (c) 2026 OceanApocalypseStudios</Copyright>
+		<PackageProjectUrl>https://oceanapocalypsestudios.org/RedSeaEngine/</PackageProjectUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<RepositoryUrl>https://github.com/OceanApocalypseStudios/RedSeaEngine/</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>evaluation;logic;logic-path;system;host;oss</PackageTags>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
+
+</Project>

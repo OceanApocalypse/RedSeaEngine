@@ -1,0 +1,220 @@
+name: Build, pack and release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: read
+
+jobs:
+  build-binaries:
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            arch: x64
+            rid-os: linux
+          - os: ubuntu-latest
+            arch: arm64
+            rid-os: linux
+          - os: ubuntu-latest
+            arch: arm
+            rid-os: linux
+
+          - os: windows-latest
+            arch: x64
+            rid-os: win
+          - os: windows-latest
+            arch: x86
+            rid-os: win
+          - os: windows-latest
+            arch: arm64
+            rid-os: win
+
+          - os: macos-latest
+            arch: x64
+            rid-os: osx
+          - os: macos-latest
+            arch: arm64
+            rid-os: osx
+
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.x.x'
+
+    - name: Install Linux cross-compilation tools
+      if: matrix.rid-os == 'linux' && (matrix.arch == 'arm' || matrix.arch == 'arm64')
+      run: |
+        sudo apt-get update
+        if [ "${{ matrix.arch }}" = "arm" ]; then
+          sudo apt-get install -y binutils-arm-linux-gnueabihf gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+        else
+          sudo apt-get install -y binutils-aarch64-linux-gnu gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+        fi
+
+    - name: Configure Linux-only flags
+      id: flags
+      shell: bash
+      run: |
+        EXTRA_ARGS=""
+        if [ "${{ matrix.rid-os }}" = "linux" ]; then
+          if [ "${{ matrix.arch }}" = "arm" ]; then
+            EXTRA_ARGS="-p:ObjCopyName=arm-linux-gnueabihf-objcopy -p:LinkerFlavor=lld"
+          elif [ "${{ matrix.arch }}" = "arm64" ]; then
+            EXTRA_ARGS="-p:ObjCopyName=aarch64-linux-gnu-objcopy -p:LinkerFlavor=lld"
+          fi
+        fi
+        echo "extra_args=$EXTRA_ARGS" >> $GITHUB_OUTPUT
+
+    - name: Publish native and CLI projects
+      shell: bash
+      run: |
+        # 1. Native
+        dotnet publish ./src/RedSeaEngine.Native/RedSeaEngine.Native.csproj \
+          -c Release -r ${{ matrix.rid-os }}-${{ matrix.arch }} \
+          -o ./dist/RedSeaEngine.Native-${{ matrix.rid-os }}-${{ matrix.arch }} \
+          --self-contained true ${{ steps.flags.outputs.extra_args }}
+        
+        # 2. CLI
+        dotnet publish ./src/RedSeaEngine.Cli/RedSeaEngine.Cli.csproj \
+          -c Release -r ${{ matrix.rid-os }}-${{ matrix.arch }} \
+          -o ./dist/RedSeaEngine.Cli-${{ matrix.rid-os }}-${{ matrix.arch }} \
+          --self-contained true ${{ steps.flags.outputs.extra_args }}
+
+    - name: Pack native AOT NuGet hybrid tool
+      shell: bash
+      run: |
+        # 3. Hybrid Package Variant (Outputs to a specific directory so it doesn't clash)
+        dotnet pack ./src/RedSeaEngine.Cli/RedSeaEngine.Cli.csproj \
+          -c Release \
+          -r ${{ matrix.rid-os }}-${{ matrix.arch }} \
+          -o ./dist/nuget-tool-package \
+          --self-contained true ${{ steps.flags.outputs.extra_args }}
+
+    - name: Upload Raw Native Binaries
+      uses: actions/upload-artifact@v4
+      with:
+        name: rsea-native-${{ matrix.rid-os }}-${{ matrix.arch }}
+        path: ./dist/RedSeaEngine.Native-${{ matrix.rid-os }}-${{ matrix.arch }}
+        if-no-files-found: error
+        
+    - name: Upload Raw CLI Executables
+      uses: actions/upload-artifact@v4
+      with:
+        name: rsea-engine-cli-${{ matrix.rid-os }}-${{ matrix.arch }}
+        path: ./dist/RedSeaEngine.Cli-${{ matrix.rid-os }}-${{ matrix.arch }}
+        if-no-files-found: error
+        
+    - name: Upload Native AOT NuGet Package
+      uses: actions/upload-artifact@v4
+      with:
+        name: rsea-cli-tool-${{ matrix.rid-os }}-${{ matrix.arch }}
+        path: ./dist/nuget-tool-package
+        if-no-files-found: error
+
+  deploy:
+    permissions:
+      id-token: write
+      contents: write
+
+    needs: build-binaries
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 24
+
+    - name: Download artifacts
+      uses: actions/download-artifact@v4
+      with:
+        path: ./all-binaries
+
+    - name: Collect AOT packages and setup hybrid tooling
+      run: |
+        mkdir ./nupkgs
+        
+        # 1. Pull all matrix-generated AOT packages into our central directory
+        find ./all-binaries/rsea-cli-tool-* -name "*.nupkg" -exec cp {} ./nupkgs/ \;
+
+        # 2. Build standard non-CLI dependencies
+        dotnet restore
+        dotnet build --configuration Release --no-restore
+        dotnet pack ./src/RedSeaEngine/RedSeaEngine.csproj --configuration Release --no-build --output ./nupkgs
+        dotnet pack ./src/RedSeaEngine.Json/RedSeaEngine.Json.csproj --configuration Release --no-build --output ./nupkgs
+        dotnet pack ./src/RedSeaEngine.Yaml/RedSeaEngine.Yaml.csproj --configuration Release --no-build --output ./nupkgs
+
+        # 3. Build the Hybrid top-level Pointer Package (No runtime identifier passed)
+        dotnet pack ./src/RedSeaEngine.Cli/RedSeaEngine.Cli.csproj --configuration Release --output ./nupkgs
+        
+        # 4. Build the Hybrid CoreCLR Fallback ("any" package format)
+        dotnet pack ./src/RedSeaEngine.Cli/RedSeaEngine.Cli.csproj --configuration Release -r any -p:PublishAot=false --output ./nupkgs
+
+    - name: NuGet login (OIDC → temp API key)
+      uses: NuGet/login@v1
+      id: login
+      with:
+        user: ${{ secrets.NUGET_USER }}
+
+    # - name: Push all packables to NuGet
+    #   run: |
+    #     # Nuget setup rules demand pushing the platform specific pieces BEFORE the pointer package
+    #     dotnet nuget push "./nupkgs/*.any.*nupkg" --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source "https://api.nuget.org/v3/index.json" --skip-duplicate
+    #     dotnet nuget push "./nupkgs/*linux*.*nupkg" --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source "https://api.nuget.org/v3/index.json" --skip-duplicate
+    #     dotnet nuget push "./nupkgs/*win*.*nupkg" --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source "https://api.nuget.org/v3/index.json" --skip-duplicate
+    #     dotnet nuget push "./nupkgs/*osx*.*nupkg" --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source "https://api.nuget.org/v3/index.json" --skip-duplicate
+    #     
+    #     # Last, push the main library packages and the hybrid controller pointer package
+    #     dotnet nuget push "./nupkgs/*.nupkg" --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source "https://api.nuget.org/v3/index.json" --skip-duplicate
+
+    - name: Generate changelog
+      run: |
+        npx git-cliff@latest -o ${{ github.workspace }}-CHANGELOG.md --latest
+        
+    - name: Package release binaries
+      run: |
+        mkdir ./release-assets
+        cd ./all-binaries
+        
+        # Zip everything but the raw tool packages bruv
+        for dir in *; do
+          if [[ "$dir" == "nuget-tool-"* ]]; then
+             continue
+          fi
+          
+          if [[ "$dir" == *"-win-"* ]]; then
+            echo "Windows: ../release-assets/${dir}.zip"
+            (cd "$dir" && zip -r "../../release-assets/${dir}.zip" .)
+          else
+            echo "Unix: ../release-assets/${dir}.tar.gz"
+            tar -czf "../release-assets/${dir}.tar.gz" -C "$dir" .
+          fi
+        done
+
+    # - name: Create GitHub Release
+    #   uses: softprops/action-gh-release@v2
+    #   with:
+    #     files: |
+    #       ./release-assets/*.tar.gz
+    #       ./release-assets/*.zip
+    #     body_path: ${{ github.workspace }}-CHANGELOG.md
+    #     name: Red Sea Engine ${{ github.ref_name }}
