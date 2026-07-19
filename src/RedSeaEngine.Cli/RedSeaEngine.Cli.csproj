@@ -50,6 +50,12 @@
 		</None>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\RedSeaEngine.Json\RedSeaEngine.Json.csproj" />
+	  <ProjectReference Include="..\RedSeaEngine.Yaml\RedSeaEngine.Yaml.csproj" />
+	  <ProjectReference Include="..\RedSeaEngine\RedSeaEngine.csproj" />
+	</ItemGroup>
+
 	<PropertyGroup>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackAsTool>true</PackAsTool>

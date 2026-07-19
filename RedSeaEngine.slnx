@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="RedSeaEngine.Tests/RedSeaEngine.Tests.csproj" Id="9c9da443-d600-4bdb-ad36-acf6ac381e67" />
+  <Project Path="tests/RedSeaEngine.Tests/RedSeaEngine.Tests.csproj" Id="9c9da443-d600-4bdb-ad36-acf6ac381e67" />
   <Project Path="src/RedSeaEngine.Cli/RedSeaEngine.Cli.csproj" Id="7318f31a-9654-4514-af68-87b3b7d8c809" />
   <Project Path="src/RedSeaEngine.Json/RedSeaEngine.Json.csproj" Id="510ab35a-c398-4d73-be68-56eede22fe3e" />
   <Project Path="src/RedSeaEngine.Native/RedSeaEngine.Native.csproj" Id="bd8c44e5-950c-46a2-914a-d9cf8c52370f" />
