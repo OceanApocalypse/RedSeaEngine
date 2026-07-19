@@ -1,0 +1,15 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: OceanApocalypseStudios.RedSea
+  name: OceanApocalypseStudios.RedSea
+  href: api/OceanApocalypseStudios.RedSea.html
+  commentId: N:OceanApocalypseStudios.RedSea
+  fullName: OceanApocalypseStudios.RedSea
+  nameWithType: OceanApocalypseStudios.RedSea
+- uid: OceanApocalypseStudios.RedSea.Class1
+  name: Class1
+  href: api/OceanApocalypseStudios.RedSea.Class1.html
+  commentId: T:OceanApocalypseStudios.RedSea.Class1
+  fullName: OceanApocalypseStudios.RedSea.Class1
+  nameWithType: Class1

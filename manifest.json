@@ -1,0 +1,371 @@
+{
+  "source_base_path": "/home/runner/work/RedSeaEngine/RedSeaEngine/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OceanApocalypseStudios.RedSea.Class1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OceanApocalypseStudios.RedSea.Class1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OceanApocalypseStudios.RedSea.Class1",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OceanApocalypseStudios.RedSea.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OceanApocalypseStudios.RedSea.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OceanApocalypseStudios.RedSea",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/announcements/hello-docfx.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/announcements/hello-docfx.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "articles/images/hello-docfx-new-website-demo.png",
+      "output": {
+        "resource": {
+          "relative_path": "articles/images/hello-docfx-new-website-demo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "articles/images/hello-docfx-old-website-demo.png",
+      "output": {
+        "resource": {
+          "relative_path": "articles/images/hello-docfx-old-website-demo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/insights/why-400-tests.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/insights/why-400-tests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "bindings/list.md",
+      "output": {
+        ".html": {
+          "relative_path": "bindings/list.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "bindings/python/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "bindings/python/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "bindings/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bindings/toc.html"
+        },
+        ".json": {
+          "relative_path": "bindings/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "changelog.md",
+      "output": {
+        ".html": {
+          "relative_path": "changelog.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "guides/hello-world-cli.md",
+      "output": {
+        ".html": {
+          "relative_path": "guides/hello-world-cli.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "guides/hello-world.md",
+      "output": {
+        ".html": {
+          "relative_path": "guides/hello-world.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "guides/list.md",
+      "output": {
+        ".html": {
+          "relative_path": "guides/list.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "guides/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "guides/toc.html"
+        },
+        ".json": {
+          "relative_path": "guides/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/NuGetTrends_July5.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/NuGetTrends_July5.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/small.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/small.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/xsmall.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/xsmall.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "language/evaluation-flow.md",
+      "output": {
+        ".html": {
+          "relative_path": "language/evaluation-flow.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "language/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "language/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "language/syntax.md",
+      "output": {
+        ".html": {
+          "relative_path": "language/syntax.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "language/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "language/toc.html"
+        },
+        ".json": {
+          "relative_path": "language/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "native/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "native/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "native/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "native/toc.html"
+        },
+        ".json": {
+          "relative_path": "native/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "tools/cli/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "tools/cli/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "tools/editor-support/list.md",
+      "output": {
+        ".html": {
+          "relative_path": "tools/editor-support/list.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "tools/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "tools/toc.html"
+        },
+        ".json": {
+          "relative_path": "tools/toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
