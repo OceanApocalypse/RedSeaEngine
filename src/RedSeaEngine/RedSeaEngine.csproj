@@ -19,11 +19,6 @@
 		<DefineConstants>WINDOWS;$(DefineConstants)</DefineConstants>
 	</PropertyGroup>
 
-	<!-- Not Windows -->
-	<PropertyGroup Condition="'$(OS)' != 'Windows_NT'">
-		<DefineConstants>NOT_WINDOWS;$(DefineConstants)</DefineConstants>
-	</PropertyGroup>
-
 	<PropertyGroup Label="Debug Build" Condition="'$(Configuration)' == 'Debug'">
 		<DebugType>full</DebugType>
 		<CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
