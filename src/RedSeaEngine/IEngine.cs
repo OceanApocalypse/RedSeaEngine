@@ -1,6 +1,8 @@
+using System;
+
 namespace OceanApocalypseStudios.RedSea;
 
-public interface IEngine
+public interface IEngine : IDisposable
 {
-	string? Result { get; }
+
 }

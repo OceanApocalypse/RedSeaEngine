@@ -22,9 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\RedSeaEngine.Json\RedSeaEngine.Json.csproj" />
 	  <ProjectReference Include="..\..\src\RedSeaEngine.Native\RedSeaEngine.Native.csproj" />
-	  <ProjectReference Include="..\..\src\RedSeaEngine.Yaml\RedSeaEngine.Yaml.csproj" />
 	  <ProjectReference Include="..\..\src\RedSeaEngine\RedSeaEngine.csproj" />
 	</ItemGroup>
 
