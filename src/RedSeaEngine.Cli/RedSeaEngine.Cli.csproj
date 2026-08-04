@@ -10,7 +10,7 @@
 		<OutputType>Library</OutputType>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-		<RootNamespace>OceanApocalypseStudios.RedSea.Cli</RootNamespace>
+		<RootNamespace>OceanApocalypse.RedSea.Cli</RootNamespace>
 
 		<!-- Native Publishing -->
 		<PublishAot>true</PublishAot>
@@ -51,19 +51,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\RedSeaEngine\RedSeaEngine.csproj" />
+		<ProjectReference Include="..\RedSeaEngine\RedSeaEngine.csproj" />
 	</ItemGroup>
 
 	<PropertyGroup>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackAsTool>true</PackAsTool>
 
-		<PackageId>OceanApocalypseStudios.RedSeaEngine.Cli</PackageId>
+		<PackageId>OceanApocalypse.RedSeaEngine.Cli</PackageId>
 		<Title>Red Sea Engine CLI</Title>
 		<ToolCommandName>rsea</ToolCommandName>
-		<ToolPackageRuntimeIdentifiers>win-x64;win-arm64;win-x86;osx-arm64;osx-x64;linux-x64;linux-arm64;linux-arm;any</ToolPackageRuntimeIdentifiers>
-		<Authors>OceanApocalypseStudios</Authors>
-		<Company>OceanApocalypseStudios</Company>
+		<ToolPackageRuntimeIdentifiers>
+			win-x64;win-arm64;win-x86;osx-arm64;osx-x64;linux-x64;linux-arm64;linux-arm;any</ToolPackageRuntimeIdentifiers>
+		<Authors>OceanApocalypse</Authors>
+		<Company>OceanApocalypse</Company>
 		<NeutralLanguage>en</NeutralLanguage>
 
 		<!-- DON'T FORGET TO EDIT THIS -->
@@ -71,11 +72,12 @@
 		<InformationalVersion>1.0.0-prerelease1</InformationalVersion>
 		<PackageReleaseNotes>TODO</PackageReleaseNotes>
 
-		<Description>The CLI for the engine that handles cross-platform targets with incredible ease.</Description>
-		<Copyright>Copyright (c) 2026 OceanApocalypseStudios</Copyright>
-		<PackageProjectUrl>https://oceanapocalypsestudios.org/RedSeaEngine/</PackageProjectUrl>
+		<Description>The CLI for the engine that handles cross-platform targets with incredible
+			ease.</Description>
+		<Copyright>Copyright (c) 2026 OceanApocalypse</Copyright>
+		<PackageProjectUrl>https://oceanapocalypse.org/RedSeaEngine/</PackageProjectUrl>
 		<PackageIcon>icon.png</PackageIcon>
-		<RepositoryUrl>https://github.com/OceanApocalypseStudios/RedSeaEngine/</RepositoryUrl>
+		<RepositoryUrl>https://github.com/OceanApocalypse/RedSeaEngine/</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>evaluation;logic;logic-path;system;host;oss</PackageTags>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>

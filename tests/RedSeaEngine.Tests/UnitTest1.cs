@@ -1,4 +1,4 @@
-namespace OceanApocalypseStudios.RedSea.Tests;
+namespace OceanApocalypse.RedSea.Tests;
 
 public class UnitTest1
 {

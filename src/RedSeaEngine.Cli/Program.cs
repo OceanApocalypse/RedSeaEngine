@@ -1,7 +1,7 @@
 using System;
 
 
-namespace OceanApocalypseStudios.RedSea.Cli;
+namespace OceanApocalypse.RedSea.Cli;
 
 internal class Program
 {

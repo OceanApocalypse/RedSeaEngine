@@ -1,4 +1,4 @@
-namespace OceanApocalypseStudios.RedSea;
+namespace OceanApocalypse.RedSea;
 
 public class Class1
 {

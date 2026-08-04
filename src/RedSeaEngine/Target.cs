@@ -2,7 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 
 
-namespace OceanApocalypseStudios.RedSea;
+namespace OceanApocalypse.RedSea;
 
 public readonly struct Target(string? targetName, string? runnerName, string? machineName, OperatingSystem osName, float minOsVersion, float maxOsVersion, string? osBuildNumber, LinuxDistribution distroName, LinuxDistribution distroFamily, Architecture processorArchitecture, object? output)
 {

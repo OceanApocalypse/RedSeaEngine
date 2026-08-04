@@ -10,7 +10,7 @@
 		<OutputType>Library</OutputType>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-		<RootNamespace>OceanApocalypseStudios.RedSea</RootNamespace>
+		<RootNamespace>OceanApocalypse.RedSea</RootNamespace>
 
 		<IsPackable>true</IsPackable>
 	</PropertyGroup>
@@ -41,10 +41,10 @@
 	<PropertyGroup>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 
-		<PackageId>OceanApocalypseStudios.RedSeaEngine.Json</PackageId>
+		<PackageId>OceanApocalypse.RedSeaEngine.Json</PackageId>
 		<Title>JSON Support for Red Sea Engine</Title>
-		<Authors>OceanApocalypseStudios</Authors>
-		<Company>OceanApocalypseStudios</Company>
+		<Authors>OceanApocalypse</Authors>
+		<Company>OceanApocalypse</Company>
 		<NeutralLanguage>en</NeutralLanguage>
 
 		<!-- DON'T FORGET TO EDIT THIS -->
@@ -53,10 +53,10 @@
 		<PackageReleaseNotes>TODO</PackageReleaseNotes>
 
 		<Description>The engine made for handling cross-platform targets with incredible ease.</Description>
-		<Copyright>Copyright (c) 2026 OceanApocalypseStudios</Copyright>
-		<PackageProjectUrl>https://oceanapocalypsestudios.org/RedSeaEngine/</PackageProjectUrl>
+		<Copyright>Copyright (c) 2026 OceanApocalypse</Copyright>
+		<PackageProjectUrl>https://oceanapocalypse.org/RedSeaEngine/</PackageProjectUrl>
 		<PackageIcon>icon.png</PackageIcon>
-		<RepositoryUrl>https://github.com/OceanApocalypseStudios/RedSeaEngine/</RepositoryUrl>
+		<RepositoryUrl>https://github.com/OceanApocalypse/RedSeaEngine/</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>evaluation;logic;logic-path;system;host;oss</PackageTags>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>

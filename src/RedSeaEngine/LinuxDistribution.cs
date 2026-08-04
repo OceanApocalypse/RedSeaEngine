@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OceanApocalypseStudios.RedSea;
+namespace OceanApocalypse.RedSea;
 
 public enum LinuxDistribution : short
 {

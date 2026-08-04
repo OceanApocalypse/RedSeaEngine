@@ -7,10 +7,10 @@ using System.Runtime.InteropServices;
 
 using Microsoft.Win32;
 
-using OceanApocalypseStudios.RedSea.Helpers;
+using OceanApocalypse.RedSea.Helpers;
 
 
-namespace OceanApocalypseStudios.RedSea.Hosts;
+namespace OceanApocalypse.RedSea.Hosts;
 
 /// <summary>
 /// A factory for <see cref="HostInfo"/> instances.
@@ -237,7 +237,7 @@ public static class HostFactory
 		else if (OS.IsMacOS())
 		{
 			systemName = "MacOS";
-			InitializeFreeBSDOrMacOSVersionData("sw_vers", "-productVersion", ref systemVersion);			
+			InitializeFreeBSDOrMacOSVersionData("sw_vers", "-productVersion", ref systemVersion);
 		}
 
 		else if (OS.IsLinux())

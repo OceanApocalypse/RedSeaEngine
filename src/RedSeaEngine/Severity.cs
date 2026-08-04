@@ -1,4 +1,4 @@
-namespace OceanApocalypseStudios.RedSea;
+namespace OceanApocalypse.RedSea;
 
 /// <summary>
 /// The severity of an error.

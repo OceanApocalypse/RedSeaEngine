@@ -1,6 +1,6 @@
 using System;
 
-namespace OceanApocalypseStudios.RedSea;
+namespace OceanApocalypse.RedSea;
 
 public interface IEngine : IDisposable
 {

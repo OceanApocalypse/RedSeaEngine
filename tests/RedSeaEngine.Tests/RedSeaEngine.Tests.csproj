@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<Nullable>enable</Nullable>
 		<OutputType>Exe</OutputType>
-		<RootNamespace>OceanApocalypseStudios.RedSea.Tests</RootNamespace>
+		<RootNamespace>OceanApocalypse.RedSea.Tests</RootNamespace>
 		<TargetFramework>net10.0</TargetFramework>
 		<UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
 	</PropertyGroup>

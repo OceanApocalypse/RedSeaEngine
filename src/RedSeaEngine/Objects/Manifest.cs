@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OceanApocalypseStudios.RedSea.Objects;
+namespace OceanApocalypse.RedSea.Objects;
 
 internal class Manifest
 {

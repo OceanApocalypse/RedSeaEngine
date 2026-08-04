@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 
 
-namespace OceanApocalypseStudios.RedSea.Helpers;
+namespace OceanApocalypse.RedSea.Helpers;
 
 internal static class OS
 {

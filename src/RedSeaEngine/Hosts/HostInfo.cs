@@ -1,7 +1,7 @@
 using System;
 
 
-namespace OceanApocalypseStudios.RedSea.Hosts;
+namespace OceanApocalypse.RedSea.Hosts;
 
 /// <summary>
 /// A set of information on a given host.

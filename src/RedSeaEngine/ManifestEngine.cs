@@ -6,7 +6,7 @@ using System.Xml;
 using System.Xml.Schema;
 
 
-namespace OceanApocalypseStudios.RedSea;
+namespace OceanApocalypse.RedSea;
 
 public class ManifestEngine : IEngine
 {
@@ -18,7 +18,7 @@ public class ManifestEngine : IEngine
 	{
 		RunnerName = runnerName;
 
-		settings.Schemas.Add("http://oceanapocalypsestudios.org/schemas", "red-sea-manifest.xsd");
+		settings.Schemas.Add("http://oceanapocalypse.org/schemas", "red-sea-manifest.xsd");
 		settings.ValidationType = ValidationType.Schema;
 		settings.ValidationEventHandler += SchemaValidationEventHandler;
 	}
