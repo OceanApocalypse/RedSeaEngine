@@ -24,9 +24,6 @@ on:
       - "**/*.csproj"
       - "**/*.slnx"
     types: [opened, synchronize, reopened]
-  schedule:
-    - cron: '0 6 1,15 * *'
-      timezone: 'Europe/Lisbon'
   workflow_dispatch:
 
 permissions:
