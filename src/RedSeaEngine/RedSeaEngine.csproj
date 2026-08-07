@@ -43,7 +43,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="JsonSchema.Net" Version="9.3.0" />
+		<PackageReference Include="JsonSchema.Net" Version="9.4.0" />
 	</ItemGroup>
 
 	<PropertyGroup>
