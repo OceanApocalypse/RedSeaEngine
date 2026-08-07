@@ -11,7 +11,7 @@ updates:
       - "docs/*"
     schedule:
       interval: "cron"
-      cronjob: '0 7 * * 3,5'
+      cronjob: '0 7 * * TUE,THU'
       timezone: "Europe/Lisbon"
     open-pull-requests-limit: 12
     target-branch: "dev"
